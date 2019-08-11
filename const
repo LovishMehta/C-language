@@ -1,0 +1,60 @@
+const is a qualifier.
+The qualifier const can be applied to the declaration of any variable to specify that its 
+value will not be changed.
+
+e.g.
+main()
+{
+  int x;
+  x =5;
+  x++;
+  printf("x is %d ",x);  // it will print 6
+ }
+ *But when we use const keyword, its value doesnot change and it gives error
+ main()
+ {
+  const int x =5;// initialize const variable while declaration only
+  x++
+  printf("x is %d ",x); // it will show error : increment of read only variable 'x'.(it stores the value in read only memory)
+  }
+  (NOTE: By using pointer we can still change the value because pointer are really powerfull )
+  
+  Usage of "const" with pointers
+  
+  1) const pointer: It means the value of pointer is constant. Suppose the address stored in pointer p = 1000, than the value 
+    (int* const p)  of the address will remain connstant. We cannot change it by incrementing or decrementing.
+  
+SYNTAX: int * const p;  //(it means p is constant and we know p is avarible which stores address)
+  Example:
+   main()
+   {
+     const int x = 5;
+     int *const p = &x; // store the address during declaration only otherwise it will permanently store the garbage value which cannot be changed afterwards
+     printf("x=%d",x);
+     ++(*p);  // it will work because p is constant not *p,so value it is pointing at wil be incremented
+    //++p will not work, because p is constant so address stored in it cannot be incremented) 
+     printf("x=%d",x); // it print 5 
+   }  
+     
+  2) pointer to const : It means the value to which pointer is pointing is constant not the the pointer.
+     (int const *p)     i.e. we can change the address stored in p but cannot change the value *p.
+     (const int *p) // both the syntax can be used
+   
+   Example:
+    main()
+    {
+     const int x =5;
+     const int *p;
+     p =&x;
+     printf("x=%d",x); // will print 5
+     ++(*p);
+     // ++p will work
+     printf("X=%d",x); // will show error : because we have made a pointer which points to a contsant
+     }
+    
+   3. const pointer to const : It means pointer is constant and also the value which pointer is pointing to  is also constant
+      (const int* const p)  
+      
+      ++(*p); // will not work because the value pointer is pointing to is constant
+      ++p     // will not work because the even the pointer itself is constant.
+  
