@@ -1,0 +1,31 @@
+I. If we XOR a number with itself then its value is equal to "zero". (1 ^ 1 = 0),(0 ^ 0 = 0)
+    Example  14 XOR 14 = 0    =>   1100
+         (14^14)               XOR 1100
+                                  ______
+                                =  0000
+                                  ______
+                               
+   Conclusions:
+   1. A number XORed even number of times with itself = 0 
+     e.g. 14^14^14^14^14^14 = 0 (6 times 14)
+   2. A number XORed odd number of times with itself = number itself
+     e.g. 14^14^14^14^14 = 14   (5 times 14)
+     
+   *Use in Code
+   “Given a set of numbers where all elements occur even number of times except one number, find the odd occurring number”
+   
+   => Solution: // Function to return the only odd occurring element 
+   int findOdd(int arr[], int n) { 
+     int res = 0, i; 
+     for (i = 0; i < n; i++) 
+       res ^= arr[i];          // XOR 
+     return res; 
+    } 
+  
+   int main(void) { 
+     int arr[] = {12, 12, 14, 90, 14, 14, 14}; 
+     int n = sizeof(arr)/sizeof(arr[0]); 
+     printf ("The odd occurring element is %d ", findOdd(arr, n)); 
+     return 0; 
+   } 
+   // Output: The odd occurring element is 90 
