@@ -120,4 +120,8 @@ int main()
 } 
 
 **************************************************************************************************************************************
+4) Find the two non-repeating elements in an array of repeating elements
+   (https://www.geeksforgeeks.org/find-two-non-repeating-elements-in-an-array-of-repeating-elements/)
+   =>(Good Explanation: https://www.youtube.com/watch?v=QZzH7ZTksKk)
+***************************************************************************************************************************************
 
