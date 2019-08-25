@@ -1,0 +1,119 @@
+int x = 5;
+
+By looking at the above declaration one can tell about three characterisitics of the variable
+1. Name of the Variable (i.e. x)
+2. Size of the variable (i.e 2 to 4 bytes in this case)
+3. Type of Content that can be stored (i.e integer in this case)
+
+************************
+Other 4 properties
+************************
+1. Storage : it means where will the variable be stored in "RAM" or "CPO Register.
+2. Scope : dayra jha se variable ko access kiya ja sake
+3. Life : the time period between creation and destruction of the variable is called its life (i.e the time period for which  
+                                                                                                   it existed in the program)
+4. Default Value: If nothing is put into the variable than what will be its default value.
+these above properties can be known by just looking at one keyword which comes before declaration, explained below
+
+*****************************
+Four Types of Storage classes
+*****************************
+keywords that are put before the declaration of "int x =5" , these keyword decide the category of declaration statement, and these
+are termed as "Storage Classes"
+1.Automatic : When nothing is put infront of declaration (int x = 5) than it is considered to be 'Auto' i.e auto int x = 5. 
+2.Register 
+3.Static
+4.External 
+
+**************************************************************************************************************************************
+1. Automatic : keyword is 'auto' or if nothing is written then also it means auto (i.e. auto int x=5 and int x=5 both are same)
+   Default Value: in this category the default value stored in the variable is garbage variable
+   Storage      : the data of this variable is stored in 'RAM'
+   Scope        : The scope of variable is limited to the block in which it is declared.
+   Life         : life of the variable is Till the execution of the block in which it is declared.
+   
+   e.g.
+   main()
+   {
+     int x =5;
+     printf("%d\n",x);
+     {
+       int x = 2;
+       printf("%d\n",x);    // scope is limited to the block;
+     }
+     printf("%d\n",x);      // here it will print 5 because 2 was limited to the above block only.
+   }                        // life of the variable x is also until the boock exist in the program.
+   OUTPUT : 
+   5 
+   2
+   5
+**************************************************************************************************************************************   
+ 2. Register : keyword used is register => register int x=5.
+    In this category of declaration other 4 properties are as follows
+    Default value: Garbage    (same as Automatic)
+    storage      : Register => the varible os stored in register , it used in case when a variable is used too many times 
+                                and one wants to decrease the proccessing time.
+    scope        : Limited to the block in which it is declared (same as Automatic)
+    life         : Till the execution of the block in which it is declared. (same as Automatic)
+    
+    (In this declaration the main notice point is that the variable is stored in CPU register for fast execution and less time 
+     elapsing while processing)
+********************************************************************************************************************************************    
+3. Static : keyword used is static => static int x = 5.  
+   Default vlaue : 0 (zero)
+   storage       : RAM
+   scope         : Limited to the block in which it is declared (same as Automatic and Register)
+   Life          : Till the end of the program.
+   
+   (The main point to notice about static keyword is that the value stored in the varible doesn0t get destroyed)
+   Example:
+   void fn()
+   {
+     static int i;    // default value = 0
+     i++;
+     printf("%d\n",i);
+   }  
+   main()
+   {
+     fn();   // first time it will print 1
+     fn();   // Second time it will increment 1 and will print 2 ( beacuse i variable is not destroyed it exists
+                until the end of program)
+   } 
+    
+    OUTPUT:
+    1
+    2
+*************************************************************************************************************************************    
+4. External : 
+      int x = 5. // if variable x is declared outside(externally) the main loop than it belongs to 'extern Storage class'
+     
+     Now suppose int x =5 is declared below some function but you still want to use x in the function than you can 
+      simply write => 'extern int x' (meaning that i am using external x)
+      
+   Default Value : 0 (zero) // (same as static)
+   Storage       : RAM
+   Scope         : Global ( can be accessed by any function in the program)
+   life          : Till the end of program 
+    
+ main()
+ {
+ extern int x;     // without using this statement x will not be accessed because it is declared below this function.
+ printf("%d\n",x);
+ f1();
+ printf("%d\n,x);
+ }
+ 
+ int x;
+ 
+ void f1()
+ {
+ // here also you can write 'extern int x' which just mean I am using external x
+   x++;
+   printf("%d\n",x);
+ }  
+**********************************************************************************************************************************
+
+
+
+
+
