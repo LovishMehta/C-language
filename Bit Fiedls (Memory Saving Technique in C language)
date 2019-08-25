@@ -1,0 +1,41 @@
+Bit Fiedls (Memory Saving Technique in C language)
+
+suppose we have 'day' , 'month' , 'year'
+'day' : value can be maximum = 31 i.e 11111 (in binary i.e. 5 bits)
+'month' : value can be maximum = 12 i.e. 1100 (in binary i.e 4 bits)
+ so instead of allocating 4-4 separate bytes to 'day' and 'month', we can provide single 4 byte to both of tehm in which 
+ 'day' will consume => 5 bits and 'month' will consume => 4 bits, and rest will be left unconsumed.
+ 
+ Example 1
+  struct clock
+ {
+  unsigned int day;   // allot 5 bits to 'day' variable instead 4 bytes
+  unsigned int month; // allot 4 bits to 'month' variable instead of 4 bytes
+  unsigned int y;       //allot 4 bytes.   
+  }
+  // vlaue of unsigned int may vary from 2 bytes to 4 bytes , differs from compiler to compiler
+  int main()
+  {
+  struct clock c1 = {10,10,2010};
+  printf("%d\n",sizeof(c1));
+  return 0;
+  }
+  
+  (NOTE: size of c1 = 12 bytes in this case)
+  
+  Example 2
+ struct clock
+ {
+  unsigned int day:5;   // allot 5 bits to 'day' variable instead 4 bytes
+  unsigned int month:4; // allot 4 bits to 'month' variable instead of 4 bytes
+  unsigned int y;       //allot 4 bytes.   
+  }
+  // vlaue of unsigned int may vary from 2 bytes to 4 bytes , differs from compiler to compiler
+  int main()
+  {
+  struct clock c1 = {10,10,2010};
+  printf("%d\n",sizeof(c1));
+  return 0;
+  }
+  
+  Note: Now size of c1 = 8 bytes otherwise it would have been 12 bytes (4 bytes each to all varibales present in struct).
