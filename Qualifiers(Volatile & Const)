@@ -9,6 +9,7 @@ There are two types of qualifiers available in C language.
 Volatile keyword is of great use for Embedded Apllications.
 Suppose we are waiting UART to change the value using ISR which is not expected by the processor to change in that case the compiler will 
 optimize the code. In that case the code will not check that value again and will consider it as fixed. 
+(NOTE: You can even check avr software Serial Library, there at lot of places "volatile" keyword is used)
 
 So the value of the variable that we think may change and compiler may think that it will not change in future and will optimize the 
 assembly code than in that case we use keyword "Volatile" before that variable => this means we are telling compiler not to optimize
