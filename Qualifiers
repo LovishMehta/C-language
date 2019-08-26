@@ -1,0 +1,18 @@
+C-Type Qualifiers
+
+Qualifiers:  The keywords which are used to modify the properties of a variable are called type qualifiers.
+
+There are two types of qualifiers available in C language.
+1. Const: Explained in prior document.
+2. Volatile
+
+Volatile keyword is of great use for Embedded Apllications.
+Suppose we are waiting UART to change the value using ISR which is not expected by the processor to change in that case the compiler will 
+optimize the code. In that case the code will not check that value again and will consider it as fixed. 
+
+So the value of the variable that we think may change and compiler may think that it will not change in future and will optimize the 
+assembly code than in that case we use keyword "Volatile" before that variable => this means we are telling compiler not to optimize
+                                                                                  as this is a volatile variable(which may change).
+
+(Better to Refer this Link Again while revising => https://www.youtube.com/watch?v=OjrS11gtJeY)
+(Geeksforgeeks link : https://www.geeksforgeeks.org/understanding-volatile-qualifier-c-set-1-introduction/)
