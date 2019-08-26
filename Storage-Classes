@@ -1,3 +1,6 @@
+Storage Classes
+(Refer link: https://www.geeksforgeeks.org/storage-classes-in-c/)
+
 int x = 5;
 
 By looking at the above declaration one can tell about three characterisitics of the variable
@@ -26,9 +29,10 @@ are termed as "Storage Classes"
 4.External 
 
 **************************************************************************************************************************************
-1. Automatic : keyword is 'auto' or if nothing is written then also it means auto (i.e. auto int x=5 and int x=5 both are same)
+1. Automatic : keyword is 'auto' or if nothing is written then by default  also it means auto (i.e. auto int x=5 and int x=5 both
+                                                                                                                         are same)
    Default Value: in this category the default value stored in the variable is garbage variable
-   Storage      : the data of this variable is stored in 'RAM'
+   Storage      : the data of this variable is stored in 'RAM'(stack)
    Scope        : The scope of variable is limited to the block in which it is declared.
    Life         : life of the variable is Till the execution of the block in which it is declared.
    
@@ -51,7 +55,7 @@ are termed as "Storage Classes"
  2. Register : keyword used is register => register int x=5.
     In this category of declaration other 4 properties are as follows
     Default value: Garbage    (same as Automatic)
-    storage      : Register => the varible os stored in register , it used in case when a variable is used too many times 
+    storage      : Register => the varible os stored in CPU register , it used in case when a variable is used too many times 
                                 and one wants to decrease the proccessing time.
     scope        : Limited to the block in which it is declared (same as Automatic)
     life         : Till the execution of the block in which it is declared. (same as Automatic)
@@ -61,7 +65,7 @@ are termed as "Storage Classes"
 ********************************************************************************************************************************************    
 3. Static : keyword used is static => static int x = 5.  
    Default vlaue : 0 (zero)
-   storage       : RAM
+   storage       : RAM (Data Segment)
    scope         : Limited to the block in which it is declared (same as Automatic and Register)
    Life          : Till the end of the program.
    
@@ -91,7 +95,7 @@ are termed as "Storage Classes"
       simply write => 'extern int x' (meaning that i am using external x)
       
    Default Value : 0 (zero) // (same as static)
-   Storage       : RAM
+   Storage       : RAM (Data Segment)
    Scope         : Global ( can be accessed by any function in the program)
    life          : Till the end of program 
     
