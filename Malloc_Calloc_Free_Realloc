@@ -1,0 +1,23 @@
+*Explanation of all: https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/
+*Video tutorial : https://www.youtube.com/watch?v=nd7WJ4Q9gog&list=PLLioQ130_xjVgW5MVfLS1s7zfLFAbGIVs&index=45
+
+******************************************************************************************************************************************
+*MAlloc VS Calloc :https://www.geeksforgeeks.org/calloc-versus-malloc/
+1. malloc : memory allocation” method is used to dynamically allocate a single large block of memory with the specified size
+            and initialize it with garbage value.
+            synatax : p = (cast-type)malloc(size)
+            
+2. calloc : “contiguous allocation” method is used to dynamically allocate the specified number of blocks of memory of the specified type.
+            It initializes each block with a default value ‘0’.
+            syntax : p = (cat-type)calloc(n,element size)
+******************************************************************************************************************************************
+
+* Memory leak: If we don't free the space allocated dynamically then it lasts till the program don't ends which result consumption 
+              of space.           
+                                                      "or"
+              Memory leak occurs when programmers create a memory in heap and forget to delete it.
+              Memory leaks are particularly serious issues for programs like daemons and servers which by definition never terminate.
+              
+              To avoid memory leaks, memory allocated on heap should always be freed when no longer needed. => free(ptr);
+                                                                         (i.e. free or  delete the memory location pointed by ptr)
+*******************************************************************************************************************************************                                                                         
