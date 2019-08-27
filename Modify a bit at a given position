@@ -1,0 +1,99 @@
+Write a C code to set and unset a bit at a given position in C. (bit manipulation).
+
+Notes: 
+1<<2 = 0000 0100
+1<<4 = 0001 0000
+1<<0 = 0000 0001
+0<<2 = 0000 0000 = 0
+0<<5 = 0000 0000 = 0
+
+=> So as we can see above bit shifting '1' do gives some number but bit shifting '0' doesn't effect whole byte reamins 0
+
+=> So when we want to "set" a bit at that time we need to "OR" that value with bit shifted '1' 
+                                                 => value | (1<<p)
+                                             E.G.=> 10 & (1<<2) = 0000 1010 | 0000 0100 => 0000 01110 = 14
+                                             
+Now when we want to "Reset" a bit at that time we have to "AND" that value with bit shifted '0' 
+But there is a problem bit shifted '0' is always zero and if we will "AND" something with '0' it will also become 0
+                                                                                                  => 10 & 0 = 0
+Now to solve this problem we will have to make all other bits as 1 other than that bit which has to be "Reset" and we name it as mask
+                                              => int mask = 1<<2;    // 0000 0100
+                                                     mask = ~mask;  //  1111 1011
+Now by doing this we can "AND" the 'mask' varible with the value => value & mask
+                                                                 => 14 & mask = 10 // 0000 1110 & 1111 1011 = 0000 1010 
+                                                                 
+*****************************************************************************************************************************************
+Two conclusions from Bharat Acharya lecture
+1. => If you "OR" '0' with any number it value remains unaffected
+      e.g.   0 | 0 = 0    // previously it was zero and after OR operations still it is 0.
+             1 | 0 = 1    // previously it was 1 and after OR operations still it is 1.
+           
+  => On the opposite hand if you "OR" a value with '1' it changes
+     e.g.   0|1 = 1   // previously value was '0' after OR operation it became 1
+           
+2. =>If you "AND" '1' with any number its value remains unaffected   
+      e.g.    0 & 1 = 0 // previously the value was 0 and still it is 0.
+              1 & 1 = 1 // previously the was '1' and still it is 1.
+              
+  => On the other hand if we "AND" a value with '0' it changes.
+     e.g.    1 & 0 = 0 // previously value was '1' and after "AND" operation it became '0'
+     
+(This Concept is used to solve the above problem)     
+***************************************************************************************************************************************
+Method 1
+
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+
+ 
+ int main()
+ {
+   int x = 3;
+   int i;
+   int  n = 14;   // value whose value has to be SET or RESET
+   int  p = 2;    // position 
+   int b = 0;     // Reset bit
+   
+   int mask = 1<<p;
+    
+    if(b==1)
+    {
+    	n = n|mask;
+	}
+	else
+	{
+		mask = ~mask;
+		n = n&mask;
+	}
+    
+    
+   printf("%d\n",n);
+ 	
+ }
+ 
+***********************************************************************************************************************************
+Method 2 ( from Geekforgeeks)
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
+
+ 
+ int main()
+ {
+   int x = 3;
+   int i;
+   int  n = 14;
+   int  p = 2;
+   int b = 0;
+   int mask = 1<<p;
+   
+   //                                0<<2 = 0000 0000
+   // n = (000001110 & 000001010) | ((0<<2)&00000111) 
+   
+    n = (n&~mask)|((b<<p)&mask);
+   
+    
+   printf("%d\n",n);
+ 	
+ }
