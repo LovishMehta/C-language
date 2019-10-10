@@ -1,0 +1,20 @@
+int a = 10, b = 20, c;
+
+if (a < b) {
+    c = a;
+}
+else {
+    c = b;
+}
+
+printf("%d", c);
+
+It can be written as:
+
+Synatx: condition ? value_if_true : value_if_false
+
+int a = 10, b = 20, c;
+
+c = (a < b) ? a : b;
+
+printf("%d", c);
